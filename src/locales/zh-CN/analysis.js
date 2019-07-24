@@ -33,4 +33,11 @@ export default {
   'app.analysis.table.weekly-range': '周涨幅',
   'app.vpe.fast-buy-search': '快抢活动监控',
   'app.vpe.sales.price.relationship': '价格带销售趋势分析',
+  'app.vpe.sales.price.pricetag': '价格标签',
+
+  // pricetag config
+  'app.vpe.pricetaglist.tagname':'标签名称',
+  'app.vpe.pricetaglist.tagtype':'标签状态',
+  'app.vpe.pricetaglist.lastjobtime':'上次调度时间',
+
 };

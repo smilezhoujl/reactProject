@@ -42,7 +42,7 @@ class PriceTrends extends Component {
       console.log('did mount load data @@@')
       this.props.dispatch({
         type : 'pricetrends/fetchPriceTrendsData',
-        payload : 'Learn Redux'
+        payload : 'payload'
       })
   }
 

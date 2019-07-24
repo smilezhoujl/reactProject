@@ -133,7 +133,7 @@ export default {
     'GET /api/fake_chart_data2': getFakeChartData2,
     //'GET /api/fake_Offline_data' : getOfflineData
     'POST /api/fake_Offline_data' : (req , res) => {
-        console.log('mock data ### ')
+        // console.log('mock data ### ')
         const { curr_tab_index } = req.body;
         //console.log('@@@ curr Tab body is @@@ -> ' + curr_tab_index)
         //const currOfflineChartData = getOfflineData(curr_tab_index)

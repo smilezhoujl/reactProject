@@ -13,6 +13,7 @@ export default {
   'menu.vpe.charttable': '快抢活动监控',
   'menu.vpe.stepline': '价格带销售趋势',
   'menu.vpe.pricetrends': '商品价格趋势',
+  'menu.vpe.pricetaglist': '价格标签',
   'menu.vpe.AntDesignProDoc': 'AntDesignPro文档（新窗口）',
   'menu.vpe.AntDesignDoc': 'AntDesign组件（新窗口）',
 
