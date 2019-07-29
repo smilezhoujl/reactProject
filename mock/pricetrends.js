@@ -51,9 +51,7 @@ for (var i = 0; i < 93; i++) {
 
 export default {
     'POST /api/query_priceTrends_data' : (req , res) => {
-        console.log('mock query_priceTrends_data data ### ')
         const { type_index } = req.body;
-        console.log('@@@ curr Tab body is @@@ -> ' + type_index)
         res.send({ 
             status: 'ok', 
             code: 200,

@@ -1,58 +1,42 @@
 import { parse } from 'url';
 
-// mock tableListDataSource
+import mockjs from 'mockjs';
+
+const { Random } = mockjs;
+
 let tableListDataSource = [];
 
 tableListDataSource.push(
   {
-  tagname : '419白金促',
-  //status: Math.floor(Math.random() * 10) % 2,
-  status: 0,
-  updatedAt: new Date()
+    key: '419',
+    tagname: '419白金促',
+    status: 0,
+    updatedAt: new Date()
   }
 )
 
 tableListDataSource.push(
   {
-    tagname : '616白金促',
+    key: '616',
+    tagname: '616白金促',
     status: 0,
     updatedAt: new Date()
   }
 )
 tableListDataSource.push(
   {
-    tagname : '双11白金促',
+    key: '1111',
+    tagname: '双11白金促',
     status: 0,
     updatedAt: new Date()
   })
 tableListDataSource.push(
   {
-    tagname : '128周年庆白金促',
+    key: '128',
+    tagname: '128周年庆白金促',
     status: 1,
     updatedAt: new Date()
-  })  
-
-
-// for (let i = 0; i < 46; i += 1) {
-//   tableListDataSource.push({
-//     index: i,
-//     disabled: i % 6 === 0,
-//     href: 'https://ant.design',
-//     avatar: [
-//       'https://gw.alipayobjects.com/zos/rmsportal/eeHMaZBwmTvLdIwMfBpg.png',
-//       'https://gw.alipayobjects.com/zos/rmsportal/udxAbMEhpwthVVcjLXik.png',
-//     ][i % 2],
-//     name: `TradeCode ${i}`,
-//     title: `一个任务名称 ${i}`,
-//     owner: '曲丽丽',
-//     desc: '这是一段描述',
-//     callNo: Math.floor(Math.random() * 1000),
-//     status: Math.floor(Math.random() * 10) % 4,
-//     updatedAt: new Date(`2017-07-${Math.floor(i / 2) + 1}`),
-//     createdAt: new Date(`2017-07-${Math.floor(i / 2) + 1}`),
-//     progress: Math.ceil(Math.random() * 100),
-//   });
-// }
+  })
 
 function getRule(req, res, u) {
   let url = u;
@@ -106,58 +90,152 @@ function getRule(req, res, u) {
   return res.json(result);
 }
 
+function caculateStepdatas(id) {
+  const stepdatas = []
+  switch (id) {
+    case '419':
+      stepdatas.push({ title: '预热阶段（24H）', description: '4/18 早10～4/19 早10', status: 'finish' });
+      stepdatas.push({ title: '开售阶段（72H）', description: '4/19 早10～4/22 早10', status: 'finish' });
+      stepdatas.push({ title: 'Done', description: '', status: 'finish' });
+      return stepdatas
+      break;
+    case '616':
+      stepdatas.push({ title: '预热阶段（24H）', description: '6/14 晚8～6/15 晚8', status: 'finish' });
+      stepdatas.push({ title: '开售阶段（76H）', description: '6/15 晚8～6/18 晚0', status: 'finish' });
+      stepdatas.push({ title: 'Done', description: '', status: 'finish' });
+      return stepdatas
+      break;
+    case '1111':
+      stepdatas.push({ title: '预热阶段（24H）', description: '11/9 晚8～11/10 晚8', status: 'finish' });
+      stepdatas.push({ title: '开售阶段（62H）', description: '11/10 晚8～11/13 早10', status: 'finish' });
+      stepdatas.push({ title: 'Done', description: '', status: 'finish' });
+      return stepdatas
+      break;
+    default:
+      stepdatas.push({ title: '预热阶段（24H）', description: '12/6 晚8～12/7 晚8', status: 'finish' });
+      stepdatas.push({ title: '开售阶段（134H）', description: '12/7 晚8～12/11 晚8', status: 'finish' });
+      stepdatas.push({ title: 'Done', description: '', status: 'finish' });
+      return stepdatas
+      break;
+  }
+}
+
+function randomData(min, max, counts) {
+  var nums = [];
+  for (var i = 0; i < counts; i++) {
+    nums.push(Math.floor(Math.random() * min) * 10)
+  }
+  return nums;
+}
+
+const offlineData =
+  [{
+    "name": "男装",
+    "cvr": 0.4,
+    "tag": "A"
+  }, {
+    "name": "女装",
+    "cvr": 0.2,
+    "tag": "B"
+  }, {
+    "name": "母婴",
+    "cvr": 0.2,
+    "tag": "C"
+  }, {
+    "name": "鞋包",
+    "cvr": 0.8,
+    "tag": "D"
+  }, {
+    "name": "内衣",
+    "cvr": 0.3,
+    "tag": "E"
+  }, {
+    "name": "体用",
+    "cvr": 0.1,
+    "tag": "F"
+  }, {
+    "name": "美妆",
+    "cvr": 0.3,
+    "tag": "G"
+  }, {
+    "name": "精品",
+    "cvr": 0.4,
+    "tag": "H"
+  }, {
+    "name": "居家",
+    "cvr": 0.8,
+    "tag": "I"
+  }, {
+    "name": "MP",
+    "cvr": 0.3,
+    "tag": "J"
+  }]
+
+const offlineChartData = [{ "x": 1562634802200, "y1": 20, "y2": 108 }, { "x": 1562636602200, "y1": 28, "y2": 68 }, { "x": 1562638402200, "y1": 104, "y2": 44 }, { "x": 1562640202200, "y1": 51, "y2": 34 }, { "x": 1562642002200, "y1": 108, "y2": 55 }, { "x": 1562643802200, "y1": 19, "y2": 22 }, { "x": 1562645602200, "y1": 20, "y2": 50 }, { "x": 1562647402200, "y1": 28, "y2": 55 }, { "x": 1562649202200, "y1": 38, "y2": 69 }, { "x": 1562651002200, "y1": 100, "y2": 105 }, { "x": 1562652802200, "y1": 54, "y2": 105 }, { "x": 1562654602200, "y1": 58, "y2": 43 }, { "x": 1562656402200, "y1": 106, "y2": 82 }, { "x": 1562658202200, "y1": 36, "y2": 22 }, { "x": 1562660002200, "y1": 82, "y2": 104 }, { "x": 1562661802200, "y1": 62, "y2": 29 }, { "x": 1562663602200, "y1": 69, "y2": 87 }, { "x": 1562665402200, "y1": 70, "y2": 10 }, { "x": 1562667202200, "y1": 60, "y2": 69 }, { "x": 1562669002200, "y1": 28, "y2": 30 }]
+
+const getOfflineData = tag => {
+  switch (tag) {
+      case 'A':
+          return [{"x":1562634802200,"y1":20,"y2":108},{"x":1562636602200,"y1":28,"y2":68},{"x":1562638402200,"y1":104,"y2":44},{"x":1562640202200,"y1":51,"y2":34},{"x":1562642002200,"y1":108,"y2":55},{"x":1562643802200,"y1":19,"y2":22},{"x":1562645602200,"y1":20,"y2":50},{"x":1562647402200,"y1":28,"y2":55},{"x":1562649202200,"y1":38,"y2":69},{"x":1562651002200,"y1":100,"y2":105},{"x":1562652802200,"y1":54,"y2":105},{"x":1562654602200,"y1":58,"y2":43},{"x":1562656402200,"y1":106,"y2":82},{"x":1562658202200,"y1":36,"y2":22},{"x":1562660002200,"y1":82,"y2":104},{"x":1562661802200,"y1":62,"y2":29},{"x":1562663602200,"y1":69,"y2":87},{"x":1562665402200,"y1":70,"y2":10},{"x":1562667202200,"y1":60,"y2":69},{"x":1562669002200,"y1":28,"y2":30}]
+          break;
+      case 'B':
+          return [{"x":1562634802200,"y1":300,"y2":108},{"x":1562636602200,"y1":28,"y2":68},{"x":1562638402200,"y1":104,"y2":44},{"x":1562640202200,"y1":51,"y2":34},{"x":1562642002200,"y1":108,"y2":55},{"x":1562643802200,"y1":19,"y2":22},{"x":1562645602200,"y1":20,"y2":50},{"x":1562647402200,"y1":28,"y2":55},{"x":1562649202200,"y1":38,"y2":69},{"x":1562651002200,"y1":100,"y2":105},{"x":1562652802200,"y1":54,"y2":105},{"x":1562654602200,"y1":58,"y2":43},{"x":1562656402200,"y1":106,"y2":82},{"x":1562658202200,"y1":36,"y2":22},{"x":1562660002200,"y1":82,"y2":104},{"x":1562661802200,"y1":62,"y2":29},{"x":1562663602200,"y1":69,"y2":87},{"x":1562665402200,"y1":70,"y2":10},{"x":1562667202200,"y1":60,"y2":69},{"x":1562669002200,"y1":28,"y2":30}]
+          break;
+      case 'C':
+          return [{"x":1562634802200,"y1":20,"y2":208},{"x":1562636602200,"y1":28,"y2":68},{"x":1562638402200,"y1":104,"y2":44},{"x":1562640202200,"y1":51,"y2":34},{"x":1562642002200,"y1":108,"y2":55},{"x":1562643802200,"y1":19,"y2":22},{"x":1562645602200,"y1":20,"y2":50},{"x":1562647402200,"y1":28,"y2":55},{"x":1562649202200,"y1":38,"y2":69},{"x":1562651002200,"y1":100,"y2":105},{"x":1562652802200,"y1":54,"y2":105},{"x":1562654602200,"y1":58,"y2":43},{"x":1562656402200,"y1":106,"y2":82},{"x":1562658202200,"y1":36,"y2":22},{"x":1562660002200,"y1":82,"y2":104},{"x":1562661802200,"y1":62,"y2":29},{"x":1562663602200,"y1":69,"y2":87},{"x":1562665402200,"y1":70,"y2":10},{"x":1562667202200,"y1":60,"y2":69},{"x":1562669002200,"y1":28,"y2":30}]
+          break;
+      default:
+          return [{"x":1562634802200,"y1":20,"y2":108},{"x":1562636602200,"y1":28,"y2":68},{"x":1562638402200,"y1":104,"y2":44},{"x":1562640202200,"y1":51,"y2":34},{"x":1562642002200,"y1":108,"y2":55},{"x":1562643802200,"y1":19,"y2":22},{"x":1562645602200,"y1":20,"y2":50},{"x":1562647402200,"y1":28,"y2":55},{"x":1562649202200,"y1":38,"y2":69},{"x":1562651002200,"y1":100,"y2":105},{"x":1562652802200,"y1":54,"y2":105},{"x":1562654602200,"y1":58,"y2":43},{"x":1562656402200,"y1":106,"y2":82},{"x":1562658202200,"y1":36,"y2":22},{"x":1562660002200,"y1":82,"y2":104},{"x":1562661802200,"y1":62,"y2":29},{"x":1562663602200,"y1":69,"y2":87},{"x":1562665402200,"y1":70,"y2":10},{"x":1562667202200,"y1":60,"y2":69},{"x":1562669002200,"y1":28,"y2":30}]
+          break;
+  }
+}
+
+const getTableData = tag => {
+  switch (tag) {
+      case 'A':
+          return [{"index":1,"keyword":"搜索关键词-0","count":723,"range":87,"status":0},{"index":2,"keyword":"搜索关键词-1","count":176,"range":80,"status":0}]
+          break;
+      case 'B':
+          return [{"index":1,"keyword":"搜索关键词-0","count":723,"range":87,"status":0},{"index":2,"keyword":"搜索关键词-1","count":176,"range":80,"status":0},{"index":3,"keyword":"搜索关键词-2","count":517,"range":7,"status":0}]
+          break;
+      case 'C':
+          return [{"index":1,"keyword":"搜索关键词-0","count":723,"range":87,"status":0},{"index":2,"keyword":"搜索关键词-1","count":176,"range":80,"status":0},{"index":3,"keyword":"搜索关键词-2","count":517,"range":7,"status":0},{"index":4,"keyword":"搜索关键词-3","count":126,"range":35,"status":0}]
+          break;
+      default:
+          return [{"index":1,"keyword":"搜索关键词-0","count":723,"range":87,"status":0},{"index":2,"keyword":"搜索关键词-1","count":176,"range":80,"status":0}]
+          break;
+  }
+}
 
 export default {
-  'GET /api/query_priceTag_data': getRule
+  'GET /api/query_priceTag_data': getRule,
+  'POST /api/query_pricetagdetails_data': (req, res) => {
+
+    const { id } = req.body;
+    const userInfo = {
+      name: id || "",
+      tel: '18100000000',
+      delivery: '菜鸟物流',
+      addr: '浙江省杭州市西湖区万塘路18号',
+      remark: '备注',
+    };
+    res.send({
+      status: 'ok',
+      code: 200,
+      userInfo: userInfo,
+      stepdatas: caculateStepdatas(id),
+      catagorydatas: randomData(1000, 9999, 8),
+      categorynames: ["男装", "女装", "内衣", "精品", "美妆", "居家", "鞋包", "体用"],
+      offlineData: offlineData,
+      offlineChartData: offlineChartData,
+    });
+  },
+  'POST /api/fake_Offline_pricetag_data': (req, res) => {
+    const { curr_tab_index } = req.body;
+    console.log('mock data ### ')
+    
+    const resultData = getOfflineData(curr_tab_index)
+    const tableResultData = getTableData(curr_tab_index)
+    res.json({ resultData, tableResultData })
+  },
 };
-
-
-// function postRule(req, res, u, b) {
-//     let url = u;
-//     if (!url || Object.prototype.toString.call(url) !== '[object String]') {
-//       url = req.url; // eslint-disable-line
-//     }
-  
-//     const body = (b && b.body) || req.body;
-//     const { method, name, desc, key } = body;
-  
-//     switch (method) {
-//       /* eslint no-case-declarations:0 */
-//       case 'delete':
-//         tableListDataSource = tableListDataSource.filter(item => key.indexOf(item.key) === -1);
-//         break;
-//       case 'post':
-//         const i = Math.ceil(Math.random() * 10000);
-//         tableListDataSource.unshift({
-//           key: i,
-//           href: 'https://ant.design',
-//           avatar: [
-//             'https://gw.alipayobjects.com/zos/rmsportal/eeHMaZBwmTvLdIwMfBpg.png',
-//             'https://gw.alipayobjects.com/zos/rmsportal/udxAbMEhpwthVVcjLXik.png',
-//           ][i % 2],
-//           name: `TradeCode ${i}`,
-//           title: `一个任务名称 ${i}`,
-//           owner: '曲丽丽',
-//           desc,
-//           callNo: Math.floor(Math.random() * 1000),
-//           status: Math.floor(Math.random() * 10) % 2,
-//           updatedAt: new Date(),
-//           createdAt: new Date(),
-//           progress: Math.ceil(Math.random() * 100),
-//         });
-//         break;
-//       case 'update':
-//         tableListDataSource = tableListDataSource.map(item => {
-//           if (item.key === key) {
-//             Object.assign(item, { desc, name });
-//             return item;
-//           }
-//           return item;
-//         });
-//         break;
-//       default:
-//         break;
-//     }
-  
-//     return getRule(req, res, u);
-//   }

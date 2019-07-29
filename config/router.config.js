@@ -70,9 +70,19 @@ export default [
             component : './vpe/PriceTrends'
           },
           {
-            path : 'vpe/pricetaglist',
+            path : '/vpe/pricetaglist',
             name : 'pricetaglist',
             component : './vpe/PriceTagList'
+          },
+          {
+            path : '/vpe/priceTagDetails',
+            hideInMenu : true ,
+            component : './vpe/PriceTagDetails'
+          },
+          {
+            path : '/vpe/priceTagDetails/:id',
+            hideInMenu : true ,
+            component : './vpe/PriceTagDetails'
           },
           {
             path: 'https://v2-pro.ant.design/docs/getting-started-cn',

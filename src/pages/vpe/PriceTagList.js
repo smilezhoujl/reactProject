@@ -12,6 +12,8 @@ import numeral from 'numeral';
 import NumberInfo from '@/components/NumberInfo';
 import PropTypes from 'prop-types'
 
+import { routerRedux } from 'dva/router';
+
 const statusMap = ['processing', 'success'];
 const status = ['运行中', '已生成'];
 
@@ -34,8 +36,6 @@ class PriceTagList extends Component {
         {
           title: <FormattedMessage id="app.vpe.pricetaglist.tagname" defaultMessage="标签名称" />,
           dataIndex: 'tagname',
-          key: 'tagname',
-          // render: text => <Link to={`/vpe/pricetagdetails/${index.replace(/\s+/gi, '-')}`}>{index}</Link>,
         },
         {
           title: (
@@ -70,15 +70,15 @@ class PriceTagList extends Component {
     componentDidMount() {
         const { dispatch } = this.props;
         dispatch({
-          type: 'pricetag/fetch',
+          type: 'pricetag/fetchPricTageData',
         });
     }
 
     handleUpdateModalVisible = (flag, record) => {
-        // this.setState({
-        //   updateModalVisible: !!flag,
-        //   stepFormValues: record || {},
-        // });
+        this.props.dispatch(routerRedux.push({
+            pathname: '/vpe/priceTagDetails',
+            query: {'id': record.key}
+        }));
     };
     
     render(){
@@ -105,6 +105,7 @@ class PriceTagList extends Component {
                     columns={this.columns}
                     dataSource={data.list || []}
                     pagination={data.pagination}
+                    rowKey="key"
                 />
 
                 {/* <StandardTable

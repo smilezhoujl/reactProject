@@ -60,7 +60,7 @@ class StepsLine extends Component {
   }
 
   componentDidMount(){
-      console.log('did mount load data @@@')
+      //console.log('did mount load data @@@')
       this.props.dispatch({
         type : 'vpedata/fetchStepsLineData',
         payload : 'Learn Redux'

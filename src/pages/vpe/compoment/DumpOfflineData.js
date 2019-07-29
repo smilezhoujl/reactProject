@@ -36,15 +36,14 @@ const { TabPane } = Tabs;
 
 const DumpOfflineData = memo(
   ({ activeKey, loading, offlineData, offlineChartData, handleTabChange }) => (
-    
+
     <Card
       loading={loading}
-      className={styles.offlineCard}
+      style={{ marginTop: 12, marginBottom: 12 }}
       bordered={false}
       title={
         <FormattedMessage id="app.vpe.fast-buy-search" defaultMessage="Online Top Search" />
-        }
-      // style={{ marginTop: 32 }}
+      }
     >
       <Tabs activeKey={activeKey} onChange={handleTabChange}>
         {offlineData.map(shop => (

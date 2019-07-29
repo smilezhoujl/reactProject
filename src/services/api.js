@@ -85,10 +85,26 @@ export async function fakePriceTrendsData(params = {}) {
   });
 }
 
-// load pricetagdata
+// load price tag data
 export async function fakePriceTagData(params) {
   return request('/api/query_priceTag_data?${stringify(params)}');
 }
+
+// load fakePriceTagDetailsData
+export async function fakePriceTagDetailsData(id) {
+  return request('/api/query_pricetagdetails_data',{
+    method : 'POST' ,
+    data: {'id' : id},
+  });
+}
+
+export async function fakeOfflinePriceTagData(params = {}){
+  return request('/api/fake_Offline_pricetag_data', {
+    method: 'POST',
+    data: {'curr_tab_index' : params},
+  });
+}
+
 
 export async function queryTags() {
   return request('/api/tags'); 

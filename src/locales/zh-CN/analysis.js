@@ -34,6 +34,8 @@ export default {
   'app.vpe.fast-buy-search': '快抢活动监控',
   'app.vpe.sales.price.relationship': '价格带销售趋势分析',
   'app.vpe.sales.price.pricetag': '价格标签',
+  'app.vpe.sales.price.pricetag-details': '价格标签详情',
+  'app.vpe.sales.price.categorytype': '商品三级品类分布',
 
   // pricetag config
   'app.vpe.pricetaglist.tagname':'标签名称',

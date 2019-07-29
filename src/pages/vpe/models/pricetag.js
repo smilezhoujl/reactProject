@@ -1,4 +1,4 @@
-import { fakePriceTagData } from '@/services/api';
+import { fakePriceTagData , fakePriceTagDetailsData } from '@/services/api';
 
 export default {
   namespace: 'pricetag',
@@ -9,9 +9,9 @@ export default {
       pagination: {},
     },
   },
-
   effects: {
-    *fetch({ payload }, { call, put }) {
+    *fetchPricTageData({ payload }, { call, put }) {
+      //console.log('@@@ pricetag *fetch ... ')
       const response = yield call(fakePriceTagData, payload);
       yield put({
         type: 'save',
