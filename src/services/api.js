@@ -87,7 +87,11 @@ export async function fakePriceTrendsData(params = {}) {
 
 // load price tag data
 export async function fakePriceTagData(params) {
-  return request('/api/query_priceTag_data?${stringify(params)}');
+  return request(`/api/query_priceTag_data?${stringify(params)}`);
+}
+
+export async function queryPriceTagList(params) {
+  return request(`/api/query_price_tag_list?${stringify(params)}`);
 }
 
 // load fakePriceTagDetailsData

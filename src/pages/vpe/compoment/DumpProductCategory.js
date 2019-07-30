@@ -33,7 +33,7 @@ class DumpProductCategory extends Component {
     }
 
     componentDidMount() {
-        console.log('did mount load data @@@')
+        //console.log('did mount load data @@@')
         // this.props.dispatch({
         //     type: 'pricetrends/fetchPriceTrendsData',
         //     payload: 'payload'

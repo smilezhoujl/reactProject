@@ -120,7 +120,7 @@ function getDiffGroup(num, min, max) {
 function getRandomNums(min , max , counts ){
     var nums = [] ;
     for (var i = 0; i < counts ; i++){
-        nums.push(Math.round(Math.random() * 10000))
+        nums.push(Math.floor(Math.random()*min))
     }
     return nums;
 }

@@ -33,7 +33,6 @@ export default {
       });
     },
     *fetchOfflinePriceTagData({ payload }, { call, put }) {
-      console.log('@@@payload.data-->'+payload.data)
       // yield call 通过 redux-saga 发起异步请求（比如从服务端加载数据）
       const response = yield call(fakeOfflinePriceTagData, payload.data);
       //yield put 发起 dispatch (action) 更新state状态
