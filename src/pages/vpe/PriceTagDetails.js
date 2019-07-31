@@ -122,13 +122,7 @@ class PriceTagDetails extends Component {
           </Steps>
         </Card>
         <DumpProductCategory data={catagorydatas} categorys={categorynames} />
-        {/* <DumpOfflineData
-          activeKey={activeKey}
-          loading={loading}
-          offlineData={offlineData || []}
-          offlineChartData={offlineChartData || []}
-          handleTabChange={this.handleTabChange.bind(this)}
-        /> */}
+        
         <GridContent>
         <div className={styles.twoColLayout}>
           <Row gutter={24} type="flex">

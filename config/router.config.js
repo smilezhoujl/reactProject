@@ -70,6 +70,11 @@ export default [
             component : './vpe/PriceTrends'
           },
           {
+            path : '/vpe/kqwarn',
+            name : 'kqwarn',
+            component : './vpe/KqWarn'
+          },
+          {
             path : '/vpe/pricetaglist',
             name : 'pricetaglist',
             component : './vpe/PriceTagList'

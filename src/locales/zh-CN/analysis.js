@@ -37,9 +37,19 @@ export default {
   'app.vpe.sales.price.pricetag-details': '价格标签详情',
   'app.vpe.sales.price.categorytype': '商品三级品类分布',
 
+  'app.vpe.kqwarn.price.firstwarn': '管控口径1：快抢价高于活动前60天到手价',
+  'app.vpe.kqwarn.price.secondwarn': '管控口径2：快抢价高于活动后7天到手价',
+
   // pricetag config
   'app.vpe.pricetaglist.tagname':'标签名称',
   'app.vpe.pricetaglist.tagtype':'标签状态',
   'app.vpe.pricetaglist.lastjobtime':'上次调度时间',
+
+  // kqwarn columns config
+  'app.vpe.kqwarn.sn': '#',
+  'app.vpe.kqwarn.dept': '部类',
+  'app.vpe.kqwarn.lastweek_nums': '上周差价商品数',
+  'app.vpe.kqwarn.thisweek_nums': '本周差价商品数',
+  'app.vpe.kqwarn.buffer': '周同比',
 
 };

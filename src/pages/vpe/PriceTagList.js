@@ -103,7 +103,7 @@ class PriceTagList extends Component {
         const { dispatch, form } = this.props;
         form.validateFields((err, fieldsValue) => {
             if (err) return;
-
+ 
             const values = {
                 ...fieldsValue,    
             };

@@ -102,6 +102,12 @@ export async function fakePriceTagDetailsData(id) {
   });
 }
 
+// load fakeKqWarn data
+export async function fakeKqWarnData() {
+  return request('/api/fake_kqwarn_data');
+}
+
+
 export async function fakeOfflinePriceTagData(params = {}){
   return request('/api/fake_Offline_pricetag_data', {
     method: 'POST',
