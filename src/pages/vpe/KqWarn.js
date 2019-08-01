@@ -4,10 +4,11 @@ import GridContent from '@/components/PageHeaderWrapper/GridContent';
 // custom define Dump Component ~ DumpFirstWarn.js
 const DumpWarnTable = React.lazy(() => import('./compoment/DumpWarnTable.js'))
 
-import { Menu, Dropdown, Row, Col, Table, Tooltip, Card, Icon } from 'antd';
+import { Menu, Dropdown, Row, Col, Table, Tooltip, Card, Steps, Icon } from 'antd';
 import { FormattedMessage } from 'umi-plugin-react/locale';
-import { Steps, Button, message } from 'antd';
 import styles from './KqWarn.less';
+
+const Step = Steps.Step;
 
 @connect(({ kqwarn, loading }) => ({
     kqwarn
@@ -17,9 +18,9 @@ class KqWarn extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            loading: false , 
-            firsttitle : 'app.vpe.kqwarn.price.firstwarn',
-            secondtitle : 'app.vpe.kqwarn.price.secondwarn',
+            loading: false,
+            firsttitle: 'app.vpe.kqwarn.price.firstwarn',
+            secondtitle: 'app.vpe.kqwarn.price.secondwarn',
         };
     }
 
@@ -39,12 +40,30 @@ class KqWarn extends Component {
             secondDatasource = [],
         } = data;
 
-        console.log('@@@-->', JSON.stringify(this.props.kqwarn))
-
         return (
             <GridContent>
                 <div className={styles.twoColLayout}>
                     <Row gutter={24} type="flex">
+                        <Col xl={24} lg={24} md={24} sm={24} xs={24}>
+                            <Suspense fallback={null}>
+                                <Card
+                                    loading={this.props.loading}
+                                    bordered={false}
+                                    style={{ marginTop: 6 }}
+                                >
+                                    <Steps current={1}>
+                                        <Step title="Start" description="808价格管控服务开启(07/23)" />
+                                        <Step title="In Progress（Daily update）" description="快抢差价管控预警" />
+                                        <Step status="wait" title="覆盖活动提报、售卖阶段" description="全链路价格管控预警" icon={<Icon type="check-circle-o" />} />
+                                    </Steps>
+                                    
+                                </Card>
+                            </Suspense>
+                        </Col>
+                    </Row>
+                </div>
+                <div className={styles.twoColLayout}>
+                    <Row gutter={6} type="flex">
                         <Col xl={12} lg={24} md={24} sm={24} xs={24}>
                             <Suspense fallback={null}>
                                 <DumpWarnTable

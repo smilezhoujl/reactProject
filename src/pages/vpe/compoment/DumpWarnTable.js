@@ -6,6 +6,7 @@ import numeral from 'numeral';
 import styles from '../ChartsTable.less';
 import NumberInfo from '@/components/NumberInfo';
 import PropTypes from 'prop-types'
+import { isVoidTypeAnnotation } from '@babel/types';
 
 
 const columns = [
@@ -43,12 +44,17 @@ const columns = [
         sorter: (a, b) => a.buffer - b.buffer,
         render: (text, record) => (
             <Trend flag={record.thisweek_nums - record.lastweek_nums < 0 ? 'down' : 'up'}>
-                <span style={{ marginRight: 4 }}>{text}%</span>
+                <span style={{ marginRight: 4 }}>{caculatePercent(record)}</span>
             </Trend>
         ),
         align: 'right',
     },
 ];
+
+function caculatePercent(record){
+    const currPercent = Math.abs(parseInt((record.thisweek_nums - record.lastweek_nums)/record.lastweek_nums*100));
+    return isNaN(currPercent) ? 100+'%' : currPercent > 200 ? '200%+' : currPercent+'%';
+}
 
 class DumpWarnTable extends Component {
 
