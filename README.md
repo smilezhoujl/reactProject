@@ -32,5 +32,5 @@
 
 实现功能
 ##### 价格带销售分析
- !![avatar](http://42.194.140.28/priceImage.png)
+ ![avatar](http://42.194.140.28/priceImage.png)
 
