@@ -32,5 +32,16 @@
 
 实现功能
 ##### 价格带销售分析
- !(http://42.194.140.28/priceImage.png)
-
+ ![avatar](http://42.194.140.28/priceImage.png?raw=true)
+ 
+##### 快抢活动价格报表
+ ![avatar](http://42.194.140.28/kqReport.png?raw=true)
+ 
+##### 快抢活动监控（图+表数据联动）
+ ![avatar](http://42.194.140.28/kqdata.png?raw=true) 
+ 
+##### 活动价格趋势
+ ![avatar](http://42.194.140.28/priceFeature.png?raw=true) 
+ 
+##### 商品三级分类分布
+ ![avatar](http://42.194.140.28/category.png?raw=true) 
